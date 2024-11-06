@@ -1,0 +1,8 @@
+{
+    "recommendations": [
+        "pycom.pymakr",
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-python.debugpy"
+    ]
+}
