@@ -11,6 +11,9 @@ def rgb_on(r = 255, g = 0, b = 0, brightness = 0.1):
     rgb_pixel[0] = (r, g, b)
     rgb_pixel.write()
 
+def rgb_random():
+    rgb_on(random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
+
 def rgb_off():
     rgb_pixel[0] = (0, 0, 0)
     rgb_pixel.write()
@@ -66,8 +69,8 @@ for pin in led_pins:
 
 if __name__ == '__main__':
     # Turn on the RGB LED
-    rgb_on()
     while True:
+        rgb_random()
         pwm = random.choice(pwm_leds)  # Randomly select an LED
         toggle_led(pwm)  # Flash the selected LED
         time.sleep(random.uniform(0.1, 0.5))  # Random delay between flashes
