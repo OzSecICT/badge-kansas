@@ -9,6 +9,7 @@ Note that this readme is in dire need of fleshing out.
 - Install PIP
 - Install VS Code
 - `pip install esptool`
+- `pip install mpremote`
 - Clone this repo (or download it) and open it in VS Code. It should suggest/recommend the VS Code Extensions Python and Pymakr, install those.
 
 ## Setting up a badge
@@ -21,4 +22,10 @@ Use the following command to flash this firmware. Note that it should auto-detec
 - First, wipe your badge:
 `esptool.py erase_flash`
 - Flash the firmware:
-`esptool.py --chip esp32s3 write_flash -z 0x0 ESP32_GENERIC_S3-SPIRAM_OCT-20241025-v1.24.0.bin`
+`esptool.py --chip esp32s3 write_flash -z 0x0 firmware/ESP32_GENERIC_S3-SPIRAM_OCT-20241025-v1.24.0.bin`
+You can use `mpremote` to copy the files to the board. With the board connected via USB:
+- `mpremote cp boot.py :boot.py` 
+- `mpremote cp main.py :main.py`
+- Then reset the board: `mpremote reset`
+
+The board will go through an initialization where it lights up each LED in turn, then enters a twinkle phase.
